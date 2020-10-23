@@ -1,33 +1,45 @@
 
 package modelo;
 
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import javax.imageio.stream.FileImageInputStream;
+
 
 
 public class ProductosDAO {
+    int r;
     Connection con;
     Conexion cn=new Conexion();
     PreparedStatement ps;
     ResultSet rs;
+    Producto pro = new Producto();
    
     //Producto co=new Producto();
     
+    public int actualizarStock(int cant, int idp){
+        String sql="update producto set stock=? where idproducto=?";
+        try {
+            con=cn.Conectar();
+            ps=con.prepareStatement(sql);
+            ps.setInt(1, cant);
+            ps.setInt(2, idp);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return r;
+    }
 
-
-    public Producto listarID(String codigo){        //Nos lista el codigo que le ingresemos al buscador en "Generar ventas"
+    public Producto listarID(int id){        //Nos lista el codigo que le ingresemos al buscador en "Generar ventas"
     Producto p=new Producto();
-    String sql="select * from producto where codigo=?";
+    String sql="select * from producto where idproducto=?";
     try {
         con=cn.Conectar();
         ps=con.prepareStatement(sql);
-        ps.setString(3, codigo);    //Obtiene el codigo del producto y lo manda al buscador del generador de ventas
+        ps.setInt(1, id);    //Obtiene el codigo del producto y lo manda al buscador del generador de ventas
         rs=ps.executeQuery();
         while (rs.next()) {            
             p.setId(rs.getInt(1));

@@ -76,6 +76,9 @@ public class ClientesForm extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
         setTitle("Modulo Clientes");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

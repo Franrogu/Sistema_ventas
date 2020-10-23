@@ -7,22 +7,19 @@ public class DegalleVentas {
     int idVentas;
     int IdProducto;
     int cantidad;
-    String tipo;
-    String tamaño;
-    String color;
+    //String tipo;
+    //String tamaño;
+    //String color;
     double precioVenta;
 
     public DegalleVentas() {
     }
 
-    public DegalleVentas(int id, int idVentas, int IdProducto, int cantidad, String tipo, String tamaño, String color, double precioVenta) {
+    public DegalleVentas(int id, int idVentas, int IdProducto, int cantidad, double precioVenta) {
         this.id = id;
         this.idVentas = idVentas;
         this.IdProducto = IdProducto;
         this.cantidad = cantidad;
-        this.tipo = tipo;
-        this.tamaño = tamaño;
-        this.color = color;
         this.precioVenta = precioVenta;
     }
 
@@ -58,29 +55,6 @@ public class DegalleVentas {
         this.cantidad = cantidad;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getTamaño() {
-        return tamaño;
-    }
-
-    public void setTamaño(String tamaño) {
-        this.tamaño = tamaño;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
 
     public double getPrecioVenta() {
         return precioVenta;
